@@ -135,6 +135,7 @@ Ex: /v2/entities/urn:ngsi-ld:Product:010?type=Product
 
 ## 4. Keycloak Configurations
 
+Note: If you have a running keycloak serverThe images are taken from a previous version 16.1.0. Changes may apply.
 1. Create a new Realm if needed.
    1. Select the pop-up with `Add realm` option under *Master* on the left top of Keycloak admin page.
    2. Set the name of the realm, Ex: *kong* and click `create`
@@ -143,7 +144,7 @@ Ex: /v2/entities/urn:ngsi-ld:Product:010?type=Product
    2. Under client settings, set access type to `confidential`
    3. Set service accounts `enabled`
    4. Set valid redirect uris `*` 
-   5. Click on *Credentials*, use the Secret to configure kong in konga as mentioned in section [3.3](#33-keycloak-configs-for-kong)
+   5. Click on *Credentials*, use the Secret to configure kong in konga as mentioned in section [3.3](#33-open-id-connect-oidc-plugin-for-authentication-with-keycloak)
 
    ![kong-keycloak](img/kong-keycloak.png)
 3. App Client:
