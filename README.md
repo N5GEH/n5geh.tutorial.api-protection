@@ -48,7 +48,13 @@ Make sure all the services are up and running.
 *Note* : If it is not the first time starting kong and kong-db services , you can clone and run `docker-compose up -d ` directly. 
 
 ## 3. Kong/Konga Configurations
-All the configurations below are done using Konga GUI. After the inital setup, create an admin account in Konga GUI which can be accessed at `http://<machine-ip>:1337` 
+All the configurations below are done using a GUI for kong called konga. After the inital setup, you need to create an admin account in Konga GUI which can be accessed at `http://<YourIP>:1337` 
+
+Furthermore, establish a connection between konga and kong when konga is started for the first time. Enter a name and the URL where konga can find kong's admin API according to the picture below.
+
+![Services](img/konga-connection-setup.PNG)
+
+Once the initial setup is done, you can start to configure your services, routes, and plugins.
 
 ### 3.1 Creation of a Service
 Create a new service by clicking the Services button in the left navigation bar. Fill in the necessary details in the GUI. As a example, we create a service for the Orion Context Broker. 
