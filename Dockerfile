@@ -1,6 +1,6 @@
 FROM kong:3.5
 
-LABEL description="Alpine + Kong  + kong-oidc plugin + LUA Plugins"
+LABEL description="Ubuntu + Kong  + kong-oidc plugin + LUA Plugins"
 
 USER root
 # RUN apk add --update nodejs npm python3 make g++ && rm -rf /var/cache/apk/*
