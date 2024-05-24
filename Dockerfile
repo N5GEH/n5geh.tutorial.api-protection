@@ -1,15 +1,16 @@
-FROM kong:latest
+FROM kong:3.5
 
-LABEL description="Alpine + Kong  + kong-oidc plugin + LUA Plugins" 
+LABEL description="Alpine + Kong  + kong-oidc plugin + LUA Plugins"
 
 USER root
 # RUN apk add --update nodejs npm python3 make g++ && rm -rf /var/cache/apk/*
 # RUN npm install --unsafe -g kong-pdk@0.5.3
 
 ENV term xterm
-RUN apk add --update vim nano
+RUN apt-get update
+RUN apt-get install -y  vim
 
-RUN apk update && apk add curl git gcc musl-dev
+RUN apt-get install -y  curl git gcc musl-dev
 RUN luarocks install luaossl OPENSSL_DIR=/usr/local/kong CRYPTO_DIR=/usr/local/kong
 RUN luarocks install --pin lua-resty-jwt
 # RUN luarocks install kong-oidc -- deprecated
