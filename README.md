@@ -25,7 +25,7 @@ The source code of all plugins must be in the respective folder, meaning:
 1. luaplugins : This folder contains plugins written in lua language. Currently, the plugin "multi-tenancy" which validates for the _fiware-service header_ in the request against the one in the presented auth token, and the plugin "rbac" which supports _role based access control_ for upstream services are included. The "query-checker" plugin is included - yet, it's still in development. Plugins written in lua language provide the advantage of configuration via a GUI using Konga. Konga is a web GUI for the kong proxy. 
 2. plugins : You can create your own plugins written in JavaScript here.
 
-To use kong, we need to build an image using docker. Simply 1) clone this repo and navigate towards the kong folder and 2) use the command:
+To use kong, we need to build an image using docker. Simply 1) clone this repo and 2) use the command:
 ```
 docker-compose build kong
 ```
@@ -38,14 +38,13 @@ docker-compose up -d kong-db
 docker-compose run --rm kong kong migrations bootstrap
 docker-compose run --rm kong kong migrations up (for upgrading from previous version)
 ```
-Once the data migrations is performed , you can start the remaining services.
+Once the data migrations are performed, you can start the remaining services.
 ```
-docker-compose up -d kong 
-docker-compose up -d konga
+docker-compose up -d 
 ```
-Make sure all the services are up and running.
+Make sure all the services are up and running. 
 
-*Note* : If it is not the first time starting kong and kong-db services , you can clone and run `docker-compose up -d ` directly. 
+*Note* : If it is not the first time starting kong and kong-db services, you can run `docker-compose up -d ` directly. 
 
 ## 3. Kong/Konga Configurations
 All the configurations below are done using a GUI for kong called konga. After the inital setup, you need to create an admin account in Konga GUI which can be accessed at `http://<YourIP>:1337` 
@@ -69,12 +68,12 @@ Creating new routes for a given service is fairly simple. Just like creating a n
 
 ### 3.3 Open ID Connect (OIDC) plugin for authentication with Keycloak
 
-In this excample, a global plugin will be used in order to validate every incoming request against this plugin. In this case, every request needs to be authenticated against a Keycloak server.
+In this example, a global plugin will be used in order to validate every incoming request against this plugin. In this case, every request needs to be authenticated against a Keycloak server.
 
 1. Click on the 'Plugins' tab in the main navigation bar on the left side.
 2. Click on 'ADD GLOBAL PLUGINS'.
-3. Click on 'Other' and then select 'Add Plugin' option on the 'oidc' plugin
-Configure the OIDC plugins as shown in the image below with the configurations as per your client. 
+3. Click on 'Other' and then select 'Add Plugin' on the 'Oidc' plugin
+4. Configure the OIDC plugin as shown in the image below with the configurations as per your client. 
 
 ![Keycloak](img/oidc.png)
 
@@ -141,7 +140,7 @@ Ex: /v2/entities/urn:ngsi-ld:Product:010?type=Product
 
 ## 4. Keycloak Configurations
 
-Note: If you have a running keycloak serverThe images are taken from a previous version 16.1.0. Changes may apply.
+The images are taken from a previous version 16.1.0. Changes may apply.
 1. Create a new Realm if needed.
    1. Select the pop-up with `Add realm` option under *Master* on the left top of Keycloak admin page.
    2. Set the name of the realm, Ex: *kong* and click `create`
@@ -189,7 +188,7 @@ After following the above steps, you can test the funcionalities of kong and its
 - Add necessary headers depending on the plugins in the request and make sure it is put in the user token.
 - Send the request and verify.
 
-*Ex*: To use postman for testing, please check the image below to configure token.
+*E.g.*: To use postman for testing, please check the image below to configure a token.
 ![token-postman](img/token-postman.png)
 
 
